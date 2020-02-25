@@ -1,14 +1,19 @@
 package com.restFull.restfullwebservices.beans;
 
+import java.text.DateFormat;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class User {
 
     private Integer id;
     private String name;
+    DateFormat df = new SimpleDateFormat("DD MM YYYY");
     private Date birthDate;
 
    public User(Integer id, String name, Date birthDate){
+       super();
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
@@ -31,7 +36,7 @@ public class User {
         this.name = name;
     }
 
-    public Date getBirtDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
@@ -44,7 +49,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", birtDate=" + birthDate +
+                ", birthDate=" + birthDate +
                 '}';
     }
 }
