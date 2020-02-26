@@ -1,6 +1,7 @@
 package com.restFull.restfullwebservices.dao;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import com.restFull.restfullwebservices.beans.User;
 import org.springframework.stereotype.Component;
@@ -25,7 +26,7 @@ public class UserDaoService {
 
     public User findOne(int id){
         for (User user: users ) {
-            if(user.getId() == id){
+            if(user.getUserId() == id){
               return user;
             }
         }
@@ -33,11 +34,24 @@ public class UserDaoService {
     }
 
     public User save( User user){
-        if(user.getId()==null){
-            user.setId(++count);
+        if(user.getUserId()==null){
+            user.setUserId(++count);
         }
         users.add(user);
         return user;
     }
+
+    public User deleteById(int id){
+        Iterator<User> iterator = users.iterator();
+        while (iterator.hasNext()) {
+            User user = iterator.next();
+            if (user.getUserId() == id) {
+                iterator.remove();
+                return user;
+            }
+        }
+        return null;
+    }
+
 
 }

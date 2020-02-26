@@ -1,4 +1,4 @@
-package com.restFull.restfullwebservices.controller;
+package com.restFull.restfullwebservices.exceptions;
 
 
 import org.springframework.http.HttpStatus;
