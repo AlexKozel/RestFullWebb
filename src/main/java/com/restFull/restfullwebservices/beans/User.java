@@ -1,5 +1,8 @@
 package com.restFull.restfullwebservices.beans;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.text.DateFormat;
@@ -7,6 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@ApiModel(description = "All details about user.")
 public class User  {
 
     public Integer getUserId() {
@@ -19,12 +23,14 @@ public class User  {
 
     private Integer userId;
 
+    @ApiModelProperty( notes= "Name must be longer then 2")
     @Size(min=2, message = "Name must be longer than 2")
     private String name;
 
     DateFormat df = new SimpleDateFormat("DD MM YYYY");
 
     @Past(message = "Wrong format of date")
+    @ApiModelProperty(notes = "Date should be in the past")
     private Date birthDate;
 
    public User(Integer id, String name, Date birthDate){
